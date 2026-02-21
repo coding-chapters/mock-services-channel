@@ -2,11 +2,11 @@
 # Mock Spark Cluster - One-line installer (Windows)
 #
 # Usage:
-#   irm https://raw.githubusercontent.com/codingchapters/mock-services/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/install.ps1 | iex
 #
 $ErrorActionPreference = "Stop"
 
-$Channel = "https://raw.githubusercontent.com/codingchapters/mock-services/main/apps.json"
+$Channel = "https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/apps.json"
 $Apps = @(
     "start-distributed-cluster",
     "start-hdfs-cluster",

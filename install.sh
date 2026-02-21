@@ -3,11 +3,11 @@
 # Mock Spark Cluster - One-line installer
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/codingchapters/mock-services/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/install.sh | bash
 #
 set -euo pipefail
 
-CHANNEL="https://raw.githubusercontent.com/codingchapters/mock-services/main/apps.json"
+CHANNEL="https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/apps.json"
 APPS="start-distributed-cluster start-hdfs-cluster start-spark-cluster show-cluster-processes start-history-server regenerate-mock-spark-shell"
 
 info() { echo "=> $1"; }

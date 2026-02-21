@@ -1,4 +1,4 @@
-# Mock Spark Cluster Apps
+# Mock Services Channel
 
 Coursier channel for installing mock Spark cluster launchers. JARs are resolved from Maven on first run — no repo clone, no sbt, no build step needed.
 
@@ -10,10 +10,10 @@ Coursier channel for installing mock Spark cluster launchers. JARs are resolved 
 
 ```bash
 # macOS/Linux
-curl -fsSL https://raw.githubusercontent.com/codingchapters/mock-services/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/install.sh | bash
 
 # Windows (PowerShell)
-irm https://raw.githubusercontent.com/codingchapters/mock-services/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/install.ps1 | iex
 ```
 
 This installs:
@@ -42,4 +42,4 @@ All commands accept `--num-nodes N` to configure the number of worker/data nodes
 ## What's NOT included
 
 **`mock-spark-shell`** (interactive Spark REPL) is not available via Coursier because its main class is generated source from the SBT plugin. For the Spark Shell, use the full development setup:
-- [mock-services repo](https://github.com/codingchapters/mock-services) with `setup.sh`
+- [mock-services repo](https://github.com/coding-chapters/mock-services-channel) with `setup.sh`
