@@ -7,8 +7,8 @@
 #
 set -euo pipefail
 
-CHANNEL="https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/apps.json"
-APPS="start-distributed-cluster start-hdfs-cluster start-spark-cluster show-cluster-processes start-history-server regenerate-mock-spark-shell"
+CHANNEL="${CHANNEL:-https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/apps.json}"
+APPS="start-distributed-cluster start-hdfs-cluster start-spark-cluster show-cluster-processes start-history-server regenerate-mock-spark-shell mock-spark-shell"
 
 info() { echo "=> $1"; }
 
@@ -22,12 +22,15 @@ else
   if command -v brew &>/dev/null; then
     brew install coursier/formulas/coursier
   else
+    OS="$(uname -s)"
     ARCH="$(uname -m)"
-    if [ "$ARCH" = "arm64" ] || [ "$ARCH" = "aarch64" ]; then
-      CS_URL="https://github.com/coursier/coursier/releases/latest/download/cs-aarch64-apple-darwin.gz"
-    else
-      CS_URL="https://github.com/coursier/launchers/raw/master/cs-x86_64-apple-darwin.gz"
-    fi
+    case "$OS-$ARCH" in
+      Linux-x86_64)  CS_URL="https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz" ;;
+      Linux-aarch64) CS_URL="https://github.com/coursier/coursier/releases/latest/download/cs-aarch64-pc-linux.gz" ;;
+      Darwin-arm64)  CS_URL="https://github.com/coursier/coursier/releases/latest/download/cs-aarch64-apple-darwin.gz" ;;
+      Darwin-x86_64) CS_URL="https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-apple-darwin.gz" ;;
+      *) echo "Unsupported platform: $OS-$ARCH"; exit 1 ;;
+    esac
     mkdir -p "$HOME/bin"
     curl -fL "$CS_URL" | gzip -d > "$HOME/bin/cs"
     chmod +x "$HOME/bin/cs"

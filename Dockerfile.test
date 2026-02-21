@@ -1,0 +1,16 @@
+FROM eclipse-temurin:21-jdk
+
+RUN apt-get update && apt-get install -y curl gzip git && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m testuser
+USER testuser
+WORKDIR /home/testuser
+
+COPY --chown=testuser:testuser install.sh apps.json /home/testuser/channel/
+
+# Use local apps.json as the channel
+ENV CHANNEL="file:///home/testuser/channel/apps.json"
+RUN bash /home/testuser/channel/install.sh
+
+ENV PATH="/home/testuser/.local/share/coursier/bin:/home/testuser/bin:${PATH}"
+RUN show-cluster-processes
