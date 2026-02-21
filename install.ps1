@@ -13,7 +13,7 @@ $Apps = @(
     "start-spark-cluster",
     "show-cluster-processes",
     "start-history-server",
-    "regenerate-mock-services",
+    "regenerate-mock-spark-shell",
     "mock-services"
 )
 

@@ -37,5 +37,3 @@ start-history-server         # standalone History Server
 show-cluster-processes       # display running cluster processes
 mock-services "MyApp"     # interactive Spark REPL
 ```
-
-All cluster commands accept `--num-nodes N` to configure the number of worker/data nodes (default: 3).

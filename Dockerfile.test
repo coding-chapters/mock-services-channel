@@ -14,3 +14,4 @@ RUN bash /home/testuser/channel/install.sh
 
 ENV PATH="/home/testuser/.local/share/coursier/bin:/home/testuser/bin:${PATH}"
 RUN show-cluster-processes
+RUN mock-services 2>&1 || true
