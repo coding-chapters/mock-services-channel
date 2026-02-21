@@ -8,7 +8,7 @@
 set -euo pipefail
 
 CHANNEL="${CHANNEL:-https://raw.githubusercontent.com/coding-chapters/mock-services-channel/main/apps.json}"
-APPS="start-distributed-cluster start-hdfs-cluster start-spark-cluster show-cluster-processes start-history-server regenerate-mock-spark-shell mock-spark-shell"
+APPS="start-distributed-cluster start-hdfs-cluster start-spark-cluster show-cluster-processes start-history-server regenerate-mock-services mock-services"
 
 info() { echo "=> $1"; }
 

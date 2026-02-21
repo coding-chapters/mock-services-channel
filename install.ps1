@@ -13,8 +13,8 @@ $Apps = @(
     "start-spark-cluster",
     "show-cluster-processes",
     "start-history-server",
-    "regenerate-mock-spark-shell",
-    "mock-spark-shell"
+    "regenerate-mock-services",
+    "mock-services"
 )
 
 function Info($msg) { Write-Host "=> $msg" }

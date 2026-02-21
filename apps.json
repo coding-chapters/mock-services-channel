@@ -133,9 +133,9 @@
     ],
     "mainClass": "org.codingchapters.mockcluster.RegenerateMockSparkShell"
   },
-  "mock-spark-shell": {
+  "mock-services": {
     "repositories": ["central", "https://mavenprod.codingchapters.com/releases"],
-    "dependencies": ["org.codingchapters:mock-spark-shell_2.13:0.0.1"],
+    "dependencies": ["org.codingchapters:mock-services_2.13:0.0.1"],
     "exclusions": [
       "org.apache.hadoop:hadoop-client-runtime",
       "org.apache.hadoop:hadoop-client-api"
