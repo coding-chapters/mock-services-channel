@@ -35,5 +35,22 @@ start-spark-cluster          # Spark-only (no HDFS)
 start-hdfs-cluster           # HDFS-only (no Spark)
 start-history-server         # standalone History Server
 show-cluster-processes       # display running cluster processes
-mock-services "MyApp"     # interactive Spark REPL
+mock-services "MyApp"        # interactive Spark REPL
 ```
+
+---
+
+## Docker Test
+
+Verify the install script works on a fresh Linux machine:
+
+```bash
+docker build --no-cache -f Dockerfile.test -t mock-services-test .
+```
+
+This builds a container that:
+1. Installs coursier from scratch
+2. Runs `install.sh` with the local `apps.json` channel
+3. Verifies `show-cluster-processes` and `mock-services` commands are runnable
+
+**Note**: First build is slow (~3-5 min) — downloads Spark + Hadoop + all transitive JARs. Allocate at least 4 GB Docker memory to avoid OOM kills.
